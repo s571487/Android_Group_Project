@@ -16,4 +16,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,GestureInput.class);
         startActivity(intent);
     }
+
+    public void messagehistory(View view) {
+        Intent intent = new Intent(MainActivity.this,MessageHistory.class);
+        startActivity(intent);
+    }
 }
