@@ -26,4 +26,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,Contacts.class);
         startActivity(intent);
     }
+
+    public void gesturecustom(View view) {
+        Intent intent = new Intent(MainActivity.this,GestureCustom.class);
+        startActivity(intent);
+    }
 }

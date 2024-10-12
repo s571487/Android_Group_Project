@@ -12,10 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home Screen"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/navigateButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"/>
 
     <Button
         android:id="@+id/navigateButton"
@@ -23,10 +24,10 @@
         android:layout_height="wrap_content"
         android:text="Gesture Input"
         android:onClick="gestureinput"
-        app:layout_constraintTop_toTopOf="@id/TV"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TV"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/navigateButton3"
@@ -34,10 +35,10 @@
         android:layout_height="wrap_content"
         android:text="Message History"
         android:onClick="messagehistory"
-        app:layout_constraintTop_toTopOf="@id/navigateButton"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigateButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/navigateButton4"
@@ -45,9 +46,21 @@
         android:layout_height="wrap_content"
         android:text="Contacts"
         android:onClick="contacts"
-        app:layout_constraintTop_toTopOf="@id/navigateButton3"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigateButton3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/navigateButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GestureCustom"
+        android:onClick="gesturecustom"
+        app:layout_constraintTop_toBottomOf="@id/navigateButton4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
