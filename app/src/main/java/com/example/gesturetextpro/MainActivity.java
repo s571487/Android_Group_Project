@@ -36,4 +36,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,Settings.class);
         startActivity(intent);
     }
+
+    public void GroupMessaging(View view) {
+        Intent intent = new Intent(MainActivity.this,GroupMessaging.class);
+        startActivity(intent);
+    }
 }
