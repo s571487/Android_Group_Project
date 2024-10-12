@@ -13,7 +13,7 @@ public class Contacts extends AppCompatActivity {
     }
 
     public void gesture(View view) {
-        Intent intent = new Intent(Contacts.this, MainActivity.class);
+        Intent intent = new Intent(Contacts.this, GestureInput.class);
         startActivity(intent);
         finish();
     }
