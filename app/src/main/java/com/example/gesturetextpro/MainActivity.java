@@ -31,4 +31,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,GestureCustom.class);
         startActivity(intent);
     }
+
+    public void settings(View view) {
+        Intent intent = new Intent(MainActivity.this,Settings.class);
+        startActivity(intent);
+    }
 }
