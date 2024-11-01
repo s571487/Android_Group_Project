@@ -1,37 +1,35 @@
-<!-- res/layout/activity_main.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="16dp">
 
     <Button
         android:id="@+id/message_history_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Message History"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:text="Message History" />
 
     <Button
         android:id="@+id/contacts_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contacts"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:text="Contacts" />
 
     <Button
         android:id="@+id/settings_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:text="Settings" />
 
     <Button
         android:id="@+id/compose_message_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Compose New Message (Gesture)"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:text="Compose New Message (Gesture)" />
 </LinearLayout>

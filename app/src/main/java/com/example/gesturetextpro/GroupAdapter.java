@@ -5,9 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import android.widget.ArrayAdapter;
+
 import java.util.List;
 
 public class GroupAdapter extends ArrayAdapter<String> {
@@ -28,10 +31,8 @@ public class GroupAdapter extends ArrayAdapter<String> {
             listItem = LayoutInflater.from(mContext).inflate(R.layout.item_group, parent, false);
         }
 
-        // Get current group name
         String currentGroup = mGroupList.get(position);
 
-        // Set group name to TextView
         TextView groupTextView = listItem.findViewById(R.id.group_name);
         groupTextView.setText(currentGroup);
 

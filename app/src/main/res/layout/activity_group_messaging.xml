@@ -1,4 +1,3 @@
-<!-- res/layout/activity_group_messaging.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,10 +13,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
         android:text="Group Conversations"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:paddingBottom="16dp" />
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/group_list"

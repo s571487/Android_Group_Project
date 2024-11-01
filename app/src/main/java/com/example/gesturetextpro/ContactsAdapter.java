@@ -5,9 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import android.widget.ArrayAdapter;
+
 import java.util.List;
 
 public class ContactsAdapter extends ArrayAdapter<String> {
@@ -28,10 +31,7 @@ public class ContactsAdapter extends ArrayAdapter<String> {
             listItem = LayoutInflater.from(mContext).inflate(R.layout.item_contact, parent, false);
         }
 
-        // Get the current contact name
         String currentContact = mContactsList.get(position);
-
-        // Set contact name to TextView
         TextView contactTextView = listItem.findViewById(R.id.contact_name);
         contactTextView.setText(currentContact);
 

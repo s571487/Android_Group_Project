@@ -1,10 +1,9 @@
-<!-- res/layout/activity_gesture_input.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="16dp">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -16,8 +15,8 @@
         android:id="@+id/message_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your message here"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:hint="Enter your message here" />
 
     <Button
         android:id="@+id/send_button"

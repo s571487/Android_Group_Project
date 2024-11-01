@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -25,23 +26,18 @@ public class Contacts extends AppCompatActivity {
 
         contactsListView = findViewById(R.id.contacts_list);
 
-        // Initialize the Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Enable the Up button in the action bar
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        // Load contacts (stubbed function with hard-coded values)
         contactsList = loadContacts();
-
-        // Set up adapter for displaying contacts
         ContactsAdapter adapter = new ContactsAdapter(this, contactsList);
         contactsListView.setAdapter(adapter);
 
-        // Set click listener for each contact item
         contactsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -54,14 +50,13 @@ public class Contacts extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed(); // Go back when Up button is pressed
+            onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private List<String> loadContacts() {
-        // Stubbed data - replace with actual contacts data retrieval
         List<String> contacts = new ArrayList<>();
         contacts.add("Alice Johnson");
         contacts.add("Bob Smith");
