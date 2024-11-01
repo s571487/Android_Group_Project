@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize buttons
         messageHistoryButton = findViewById(R.id.message_history_button);
         contactsButton = findViewById(R.id.contacts_button);
         settingsButton = findViewById(R.id.settings_button);
