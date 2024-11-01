@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         settingsButton = findViewById(R.id.settings_button);
         composeMessageButton = findViewById(R.id.compose_message_button);
 
-        // Button to view message history
         messageHistoryButton.setOnClickListener(v -> openMessageHistory());
 
         // Button to view contacts
