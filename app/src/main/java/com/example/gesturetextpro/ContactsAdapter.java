@@ -38,3 +38,4 @@ public class ContactsAdapter extends ArrayAdapter<String> {
         return listItem;
     }
 }
+
