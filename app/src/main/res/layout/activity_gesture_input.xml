@@ -1,31 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<!-- res/layout/activity_gesture_input.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GestureInput">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
 
-    <TextView
-        android:id="@+id/TV"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
+    <EditText
+        android:id="@+id/message_input"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gesture Input Screen"
-        app:layout_constraintBottom_toTopOf="@id/navigateButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:hint="Enter your message here"
+        android:layout_marginBottom="16dp" />
 
     <Button
-        android:id="@+id/navigateButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/send_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:onClick="home"
-        app:layout_constraintTop_toBottomOf="@id/TV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Send" />
+</LinearLayout>
