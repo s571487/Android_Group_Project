@@ -1,90 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<!-- res/layout/activity_main.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/TV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home Screen"
-        app:layout_constraintBottom_toTopOf="@id/navigateButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="32dp"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
 
     <Button
-        android:id="@+id/navigateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gesture Input"
-        android:onClick="gestureinput"
-        app:layout_constraintTop_toBottomOf="@id/TV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-
-    <Button
-        android:id="@+id/navigateButton3"
-        android:layout_width="wrap_content"
+        android:id="@+id/message_history_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Message History"
-        android:onClick="messagehistory"
-        app:layout_constraintTop_toBottomOf="@id/navigateButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginBottom="8dp" />
 
     <Button
-        android:id="@+id/navigateButton4"
-        android:layout_width="wrap_content"
+        android:id="@+id/contacts_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Contacts"
-        android:onClick="contacts"
-        app:layout_constraintTop_toBottomOf="@id/navigateButton3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginBottom="8dp" />
 
     <Button
-        android:id="@+id/navigateButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GestureCustom"
-        android:onClick="gesturecustom"
-        app:layout_constraintTop_toBottomOf="@id/navigateButton4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"/>
-
-    <Button
-        android:id="@+id/navigateButton6"
-        android:layout_width="wrap_content"
+        android:id="@+id/settings_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Settings"
-        android:onClick="settings"
-        app:layout_constraintTop_toBottomOf="@id/navigateButton5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginBottom="8dp" />
 
     <Button
-        android:id="@+id/navigateButton7"
-        android:layout_width="wrap_content"
+        android:id="@+id/compose_message_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GroupMessaging"
-        android:onClick="GroupMessaging"
-        app:layout_constraintTop_toBottomOf="@id/navigateButton6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Compose New Message (Gesture)"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
