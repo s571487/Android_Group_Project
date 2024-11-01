@@ -1,32 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<!-- res/layout/activity_gesture_customization.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GestureCustom">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/TV"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
+    <EditText
+        android:id="@+id/gesture_input"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gesture Customization Screen"
-        app:layout_constraintBottom_toTopOf="@id/navigateButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:hint="Enter Gesture Name (e.g., Wave)" />
+
+    <EditText
+        android:id="@+id/phrase_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Phrase (e.g., Hello)"
+        android:layout_marginTop="8dp"/>
 
     <Button
-        android:id="@+id/navigateButton"
+        android:id="@+id/save_gesture_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:onClick="home"
-        app:layout_constraintTop_toBottomOf="@id/TV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:text="Save Gesture"
+        android:layout_marginTop="12dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ListView
+        android:id="@+id/gesture_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
