@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "826698166472",
+    "project_id": "gesture-cbfab",
+    "storage_bucket": "gesture-cbfab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826698166472:android:c20edd3ed9bb42d8f335fd",
+        "android_client_info": {
+          "package_name": "com.example.gesturetextpro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOTiXerw94xuPnmStdLVhJhYUpbPdCceY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
