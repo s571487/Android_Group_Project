@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gesturetextpro.R;
 import com.example.gesturetextpro.models.Gesture;
 
+import java.util.List;
+
 public class GestureAdapter extends RecyclerView.Adapter<GestureAdapter.GestureViewHolder> {
 
     private List<Gesture> gestures;
@@ -25,7 +27,8 @@ public class GestureAdapter extends RecyclerView.Adapter<GestureAdapter.GestureV
         void onDeleteGesture(android.gesture.Gesture gesture);
     }
 
-    public GestureAdapter(List<Gesture> gestures, OnGestureClickListener listener) {
+    public GestureAdapter(
+            List<Gesture> gestures, OnGestureClickListener listener) {
         this.gestures = gestures;
         this.listener = listener;
     }
