@@ -1,35 +1,201 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/white">
 
-    <Button
-        android:id="@+id/message_history_button"
+    <!-- AppBar Layout -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Message History" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/contacts_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Contacts" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="4dp"
+            app:title="Gesture Pro"
+            app:titleTextColor="@color/white"
+            app:titleCentered="true"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <Button
-        android:id="@+id/settings_button"
+    <!-- Main Content Scroll View -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Settings" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <Button
-        android:id="@+id/compose_message_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Compose New Message (Gesture)" />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Card View for Buttons -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Chat Button Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginBottom="16dp">
+
+                        <ImageView
+                            android:id="@+id/chatIcon"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/chat"
+                            android:contentDescription="Chat"
+                            android:layout_gravity="center" />
+
+                        <Button
+                            android:id="@+id/chatButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chat"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:background="@color/purple_500" />
+                    </LinearLayout>
+
+                    <!-- 2x2 Grid for Buttons -->
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:columnCount="2"
+                        android:rowCount="2"
+                        android:layout_marginTop="16dp"
+                        android:padding="8dp"
+                        android:layout_gravity="center">
+
+                        <!-- Message History Section -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:orientation="vertical"
+                            android:layout_margin="8dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/messageHistoryIcon"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/message_history"
+                                android:contentDescription="Message History" />
+
+                            <Button
+                                android:id="@+id/messageHistoryButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Message History"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/purple_500" />
+                        </LinearLayout>
+
+                        <!-- View Contacts Section -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:orientation="vertical"
+                            android:layout_margin="8dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/contactsIcon"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/contacts"
+                                android:contentDescription="View Contacts" />
+
+                            <Button
+                                android:id="@+id/contactsButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="View Contacts"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/purple_500" />
+                        </LinearLayout>
+
+                        <!-- Gesture Customization Section -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:orientation="vertical"
+                            android:layout_margin="8dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/gestureCustomizationIcon"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/custom_gestures"
+                                android:contentDescription="Customize Gestures" />
+
+                            <Button
+                                android:id="@+id/gestureCustomizationButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Customize Gestures"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/purple_500" />
+                        </LinearLayout>
+
+                        <!-- Settings Section -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_rowWeight="1"
+                            android:orientation="vertical"
+                            android:layout_margin="8dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/settingsIcon"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/settings"
+                                android:contentDescription="Settings" />
+
+                            <Button
+                                android:id="@+id/settingsButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Settings"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/purple_500" />
+                        </LinearLayout>
+
+                    </GridLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
