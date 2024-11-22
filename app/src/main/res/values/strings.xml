@@ -1,3 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GestureTextPro</string>
+    <string name="app_name">Gesture Messenger</string>
+    <string-array name="gesture_types">
+        <item>single_tap</item>
+        <item>double_tap</item>
+        <item>swipe_left</item>
+        <item>swipe_right</item>
+        <item>swipe_up</item>
+        <item>swipe_down</item>
+        <item>long_press</item>
+        <item>double_swipe_left</item>
+        <item>double_swipe_right</item>
+        <item>pinch_in</item>
+        <item>pinch_out</item>
+        <item>circle</item>
+    </string-array>
+
 </resources>
