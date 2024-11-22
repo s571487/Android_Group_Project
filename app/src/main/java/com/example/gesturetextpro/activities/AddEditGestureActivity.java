@@ -11,8 +11,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gesturemessenger.R;
-import com.example.gesturemessenger.models.Gesture;
+import com.example.gesturetextpro.R;
+import com.example.gesturetextpro.models.Gesture;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class AddEditGestureActivity extends AppCompatActivity {
