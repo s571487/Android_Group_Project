@@ -28,7 +28,6 @@ public class SettingsActivity extends AppCompatActivity {
         usernameEditText = findViewById(R.id.usernameEditText);
         saveButton = findViewById(R.id.saveButton);
 
-        // Fetch and display current username
         db.collection("users")
                 .document(auth.getCurrentUser().getUid())
                 .get()

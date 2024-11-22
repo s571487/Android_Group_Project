@@ -50,7 +50,6 @@ public class ContactsActivity extends AppCompatActivity implements UserAdapter.O
                     userAdapter.notifyDataSetChanged();
                 });
     }
-
     @Override
     public void onUserClick(User user) {
         Intent intent = new Intent(this, ChatActivity.class);

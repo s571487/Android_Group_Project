@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gesturetextpro.R;
 import com.example.gesturetextpro.models.Message;
 
+import java.util.List;
+
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MessageViewHolder> {
     private List<Message> messages;
     private String currentUserId;

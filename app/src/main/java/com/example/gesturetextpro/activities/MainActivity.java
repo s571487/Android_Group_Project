@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        // Check if user is logged in
         if (auth.getCurrentUser() == null) {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
@@ -30,14 +29,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Declare buttons
         Button chatButton = findViewById(R.id.chatButton);
         Button messageHistoryButton = findViewById(R.id.messageHistoryButton);
         Button contactsButton = findViewById(R.id.contactsButton);
         Button gestureCustomizationButton = findViewById(R.id.gestureCustomizationButton);
         Button settingsButton = findViewById(R.id.settingsButton);
 
-        // Set click listeners
         chatButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, ContactsActivity.class);
             startActivity(intent);

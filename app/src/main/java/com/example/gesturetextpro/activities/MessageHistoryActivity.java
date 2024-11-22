@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,16 +47,13 @@ public class MessageHistoryActivity extends AppCompatActivity {
                     List<Message> allMessages = new ArrayList<>();
                     allMessages.addAll(senderQuerySnapshot.toObjects(Message.class));
 
-                    // Sort messages by timestamp
                     Collections.sort(allMessages, (m1, m2) ->
                             m1.getTimestamp().compareTo(m2.getTimestamp()));
 
-                    // Update UI on main thread
                     runOnUiThread(() -> {
                         chatAdapter = new ChatAdapter(allMessages, auth.getCurrentUser().getUid());
                         messageList.setAdapter(chatAdapter);
 
-                        // Scroll to the last message
                         if (!allMessages.isEmpty()) {
                             messageList.scrollToPosition(allMessages.size() - 1);
                         }

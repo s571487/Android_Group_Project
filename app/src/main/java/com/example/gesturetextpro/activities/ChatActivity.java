@@ -1,11 +1,11 @@
 package com.example.gesturetextpro.activities;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,17 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.gesturetextpro.R;
 import com.example.gesturetextpro.adapters.ChatAdapter;
-import com.example.gesturetextpro.models.Gesture;
 import com.example.gesturetextpro.models.Message;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.ListenerRegistration;
-import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +42,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private Map<String, String> predefinedMessages = new HashMap<>();
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,15 +50,12 @@ public class ChatActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: Initializing components");
 
-        // Initialize Firebase Auth and Firestore
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Get receiver details from Intent
         receiverId = getIntent().getStringExtra("receiverId");
         receiverName = getIntent().getStringExtra("receiverName");
 
-        // Initialize UI elements
         messageList = findViewById(R.id.messageList);
         receiverNameText = findViewById(R.id.receiverName);
         messageBox = findViewById(R.id.messageBox);
@@ -71,11 +64,8 @@ public class ChatActivity extends AppCompatActivity {
         receiverNameText.setText(receiverName);
         messageList.setLayoutManager(new LinearLayoutManager(this));
 
-        // Initialize GestureDetector
         gestureDetector = new GestureDetector(this, new GestureListener());
 
-
-        // Attach gesture listener to the specific View
         View gestureArea = findViewById(R.id.gestureArea);
         gestureArea.setOnTouchListener((v, event) -> {
             Log.d(TAG, "TouchEvent on gestureArea: " + event.toString());
@@ -84,21 +74,18 @@ public class ChatActivity extends AppCompatActivity {
         });
 
 
-        // Send Button Listener
         sendButton.setOnClickListener(v -> {
             String messageContent = messageBox.getText().toString().trim();
             if (!messageContent.isEmpty()) {
                 sendMessage(messageContent);
-                messageBox.setText(""); // Clear the message box
+                messageBox.setText("");
             } else {
                 Toast.makeText(this, "Message cannot be empty", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Load gestures from Firestore
         loadGesturesFromFirestore();
 
-        // Load chat messages
         loadMessages();
     }
 
@@ -168,25 +155,19 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
-
-
     private void populateMessage(String content) {
         if (content == null || content.isEmpty()) {
-            return; // Avoid processing null or empty messages
+            return;
         }
 
-        // Get the existing text from the message box
         String existingText = messageBox.getText().toString().trim();
 
-        // Concatenate the new content with a space
         if (!existingText.isEmpty()) {
             content = existingText + " " + content;
         }
 
-        // Set the updated content back to the message box
         messageBox.setText(content);
 
-        // Move the cursor to the end for better UX
         messageBox.setSelection(content.length());
 
         Log.d(TAG, "populateMessage: Updated content -> " + content);
@@ -207,42 +188,32 @@ public class ChatActivity extends AppCompatActivity {
     private void loadMessages() {
         String currentUserId = auth.getCurrentUser().getUid();
 
-        // First query: Messages sent by current user to receiver
         db.collection("messages")
                 .whereEqualTo("senderId", currentUserId)
                 .whereEqualTo("receiverId", receiverId)
                 .get()
                 .addOnSuccessListener(senderQuerySnapshot -> {
-                    // Create a list to hold all messages
                     List<Message> allMessages = new ArrayList<>();
-
-                    // Add messages sent by current user to receiver
                     allMessages.addAll(senderQuerySnapshot.toObjects(Message.class));
 
-                    // Second query: Messages sent by receiver to current user
                     db.collection("messages")
                             .whereEqualTo("senderId", receiverId)
                             .whereEqualTo("receiverId", currentUserId)
                             .get()
                             .addOnSuccessListener(receiverQuerySnapshot -> {
-                                // Add messages sent by receiver to current user
                                 allMessages.addAll(receiverQuerySnapshot.toObjects(Message.class));
 
-                                // Sort messages by timestamp
                                 Collections.sort(allMessages, (m1, m2) ->
                                         m1.getTimestamp().compareTo(m2.getTimestamp()));
 
-                                // Update UI on main thread
                                 runOnUiThread(() -> {
                                     ChatAdapter chatAdapter = new ChatAdapter(allMessages, currentUserId);
                                     messageList.setAdapter(chatAdapter);
 
-                                    // Scroll to the last message
                                     if (!allMessages.isEmpty()) {
                                         messageList.scrollToPosition(allMessages.size() - 1);
                                     }
 
-                                    // Log the number of messages
                                     Log.d(TAG, "Total messages loaded: " + allMessages.size());
                                 });
                             })

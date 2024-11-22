@@ -34,7 +34,6 @@ public class AddEditGestureActivity extends AppCompatActivity {
         gestureTypeSpinner = findViewById(R.id.gestureTypeSpinner);
         saveButton = findViewById(R.id.saveButton);
 
-        // Setup spinner for gesture types (single_tap, double_tap, etc.)
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.gesture_types, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -65,22 +64,19 @@ public class AddEditGestureActivity extends AppCompatActivity {
     }
 
     private int getGestureTypePosition(String gestureType) {
-        // Find the position of the gesture type in the spinner options
         String[] gestureTypes = getResources().getStringArray(R.array.gesture_types);
         for (int i = 0; i < gestureTypes.length; i++) {
             if (gestureTypes[i].equals(gestureType)) {
                 return i;
             }
         }
-        return 0;  // Default to the first position if the gesture type is not found
+        return 0;
     }
-
     private void saveGesture() {
         String gestureType = gestureTypeSpinner.getSelectedItem().toString();
         String message = gestureMessageBox.getText().toString();
 
         if (gestureId == null) {
-            // Creating a new Gesture
             Gesture gesture = new Gesture(userId, gestureType, message);
             db.collection("gestures").add(gesture)
                     .addOnSuccessListener(documentReference -> {
@@ -89,7 +85,6 @@ public class AddEditGestureActivity extends AppCompatActivity {
                     })
                     .addOnFailureListener(e -> Log.e(TAG, "Error saving gesture", e));
         } else {
-            // Updating an existing Gesture
             db.collection("gestures")
                     .document(gestureId)
                     .update("gestureType", gestureType, "message", message)

@@ -41,7 +41,7 @@ public class GestureManagementActivity extends AppCompatActivity implements Gest
 
         addGestureButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, AddEditGestureActivity.class);
-            startActivityForResult(intent, 1);  // Request code 1 to add a gesture
+            startActivityForResult(intent, 1);
         });
     }
 
@@ -54,7 +54,6 @@ public class GestureManagementActivity extends AppCompatActivity implements Gest
                         for (DocumentSnapshot document : queryDocumentSnapshots.getDocuments()) {
                             Gesture gesture = document.toObject(Gesture.class);
                             if (gesture != null) {
-                                // Setting the document ID to the gesture's 'id' field
                                 gesture.setId(document.getId());
                                 gestures.add(gesture);
                             }
@@ -67,21 +66,19 @@ public class GestureManagementActivity extends AppCompatActivity implements Gest
 
     @Override
     public void onEditGesture(Gesture gesture) {
-        // Launch Edit activity and pass gesture ID for editing
         Intent intent = new Intent(this, AddEditGestureActivity.class);
         intent.putExtra("gestureId", gesture.getId());
-        startActivityForResult(intent, 2);  // Request code 2 to edit a gesture
+        startActivityForResult(intent, 2);
     }
 
     @Override
     public void onDeleteGesture(Gesture gesture) {
-        // Delete the gesture from Firestore using its ID
         db.collection("gestures")
                 .document(gesture.getId())
                 .delete()
                 .addOnSuccessListener(aVoid -> {
                     Log.d("GestureManagement", "Gesture deleted successfully");
-                    loadGestures();  // Reload the list after deletion
+                    loadGestures();
                 })
                 .addOnFailureListener(e -> Log.e("GestureManagement", "Error deleting gesture", e));
     }
@@ -100,7 +97,7 @@ public class GestureManagementActivity extends AppCompatActivity implements Gest
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            loadGestures();  // Reload the gestures list after adding/editing
+            loadGestures();
         }
     }
 
