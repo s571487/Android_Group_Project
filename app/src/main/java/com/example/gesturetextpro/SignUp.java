@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.gesturetextpro.activities.MainActivity;
+
 public class SignUp extends AppCompatActivity {
     private EditText usernameInput, emailInput, passwordInput;
     private Button loginButton, signupButton;
