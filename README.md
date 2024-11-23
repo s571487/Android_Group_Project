@@ -3,6 +3,8 @@
 
 The **Gesture Text Pro** redefines how we communicate by introducing gesture-based inputs alongside traditional text chatting. This app allows users to create and use custom gestures for faster, fun, and more personalized communication.
 
+Download the App: [GestureTextPro.apk](https://github.com/s571487/Android_Group_Project/blob/main/GestureTextPro.apk)
+
 ---
 
 ## 🌟 Key Features
