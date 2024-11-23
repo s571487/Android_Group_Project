@@ -10,10 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gesturetextpro.R;
 import com.example.gesturetextpro.models.User;
 
+import java.util.List;
+
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     private static final String TAG = "UserAdapter";
-    private List<User> users;
+    private
+    List<User> users;
     private Context context;
     private OnUserClickListener listener;
 
