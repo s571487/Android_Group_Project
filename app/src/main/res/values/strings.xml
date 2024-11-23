@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Gesture Messenger</string>
+    <string name="app_name">Gesture Text Pro</string>
     <string-array name="gesture_types">
         <item>single_tap</item>
         <item>double_tap</item>
